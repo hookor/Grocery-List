@@ -1,53 +1,103 @@
 /* COMMON */
-@font-face { 
-  font-family: 'Google-Sans';
-  src: url(./assets/fonts/google_sans_mono.woff) 
-  format("woff");  
-}
 * {
-  font-family: 'Google-Sans', sans-serif;
+  font-family: 'Sora', sans-serif;
+}
+:root{
+  --add-color: #00BB72;
+  --remove-color: #DB4437;
+  --icon-color: #f3f6fc;
 }
 /* PAGE */
-.whole-container {
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 500px;
+  flex-shrink: 0;
+  font-family: 'Sora', sans-serif;
+
+}
+.whole-container {
+  border: 4px solid grey;
+  border-radius: 50px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 100px;
+  /* flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  width: 50%;
+  height: 100vh;
 }
 /* FORM */
 .grocery-form {
   text-align: center;
   border: 2px solid red;
+  border-radius: 50px;
   padding: 10px;
+  /* width: 80%;
+  height: 100%; */
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+  gap: 20px;
 }
 .alert{}
 .grocery-form h3 {
   border: 3px solid orange;
+  border-radius: 60px;
+  font-size: 60px;
 }
 .grocery-form .controller {
   border: 3px solid blue;
+  border-radius: 16px;
 }
 .grocery-form .controller #grocery {}
 .grocery-form .controller .submit-btn {}
 /* LIST */
 .grocery-container {
   border: 2px solid black;
+  border-radius: 25px;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-auto-flow: row;
 }
-.grocery-list {}
+.grocery-list {
+  border: 3px solid brown;
+  display: grid;
+  grid-auto-flow: row;
+}
 .grocery-list__item {
   display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
   border: 2px solid turquoise;
+  border-radius: 25px;
 }
 .grocery-list__item .title {}
-.grocery-list__item .edit-btn {}
-.grocery-list__item .delete-btn {}
+.grocery-list__item .edit-btn {
+  font-variation-settings: 'wght' 300 'opsz' 20 'GRAD' 200;
+  border: none;
+  background: none;
+  color: var(--add-color);
+  cursor: pointer;
+}
+.grocery-list__item .delete-btn {
+  font-variation-settings: 'wght' 300 'opsz'20 'GRAD' 200;
+  border: none;
+  background: none;
+  color: var(--remove-color);
+  cursor: pointer;
+}
 
 
 
 
 
 /* CLEAR ITEMS BUTTON */
-
+.clear-btn {
+  border: none;
+  border-radius: 50px;
+  background: var(--icon-color: #f3f6fc);
+  cursor: pointer;
+}
 
 
