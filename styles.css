@@ -6,14 +6,14 @@
   --add-color: #00BB72;
   --remove-color: #DB4437;
   --icon-color: #f3f6fc;
+  --submit-color: #0b57d0;
 }
 /* PAGE */
 body {
   display: flex;
   justify-content: center;
-  flex-shrink: 0;
   font-family: 'Sora', sans-serif;
-
+  height: 100vh;
 }
 .whole-container {
   border: 4px solid grey;
@@ -21,11 +21,11 @@ body {
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 100px;
-  /* flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-  width: 50%;
-  height: 100vh;
+  align-self: center;
+  width: 60%;
+  height: 80% ;
+  box-shadow: 0 0 5px #333;
+  overflow: hidden;
 }
 /* FORM */
 .grocery-form {
@@ -38,6 +38,8 @@ body {
   display: grid;
   grid-template-rows: 1fr 2fr 1fr;
   gap: 20px;
+    box-shadow: 0 0 5px #333;
+
 }
 .alert{}
 .grocery-form h3 {
@@ -49,8 +51,17 @@ body {
   border: 3px solid blue;
   border-radius: 16px;
 }
-.grocery-form .controller #grocery {}
-.grocery-form .controller .submit-btn {}
+.grocery-form .controller #grocery {
+  font-size: 20px;
+  border-radius: 16px;
+}
+.grocery-form .controller .submit-btn {
+  font-size: 20px;
+  border: none;
+  background-color: #fff;
+  color: var(--submit-color); 
+  cursor: pointer;
+}
 /* LIST */
 .grocery-container {
   border: 2px solid black;
@@ -71,6 +82,8 @@ body {
   padding-right: 20px;
   border: 2px solid turquoise;
   border-radius: 25px;
+  box-shadow: inset 0 5px 5px -5px #333;
+
 }
 .grocery-list__item .title {}
 .grocery-list__item .edit-btn {
