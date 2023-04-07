@@ -1,0 +1,53 @@
+/* COMMON */
+@font-face { 
+  font-family: 'Google-Sans';
+  src: url(./assets/fonts/google_sans_mono.woff) 
+  format("woff");  
+}
+* {
+  font-family: 'Google-Sans', sans-serif;
+}
+/* PAGE */
+.whole-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+/* FORM */
+.grocery-form {
+  text-align: center;
+  border: 2px solid red;
+  padding: 10px;
+}
+.alert{}
+.grocery-form h3 {
+  border: 3px solid orange;
+}
+.grocery-form .controller {
+  border: 3px solid blue;
+}
+.grocery-form .controller #grocery {}
+.grocery-form .controller .submit-btn {}
+/* LIST */
+.grocery-container {
+  border: 2px solid black;
+}
+.grocery-list {}
+.grocery-list__item {
+  display: flex;
+  border: 2px solid turquoise;
+}
+.grocery-list__item .title {}
+.grocery-list__item .edit-btn {}
+.grocery-list__item .delete-btn {}
+
+
+
+
+
+/* CLEAR ITEMS BUTTON */
+
+
+
