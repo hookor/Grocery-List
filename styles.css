@@ -1,14 +1,11 @@
 /* COMMON */
-@font-face {
-  font-family: 'GoogleSans';
-  src: url('/assets/fonts/google_sans_mono.woff') format('woff');
-}
 * {
-  font-family: 'GoogleSans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   box-sizing: border-box;
+  border-radius: 50px;
 }
-:root{
-  --add-color: #00BB72;
+:root {
+  --add-color: #00bb72;
   --remove-color: #f24336;
   --bg-color: #f3f6fc;
   --submit-color: #0b57d0;
@@ -17,19 +14,19 @@
 body {
   display: flex;
   justify-content: center;
-  font-family: 'GoogleSans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   height: 100vh;
+  background-color: var(--submit-color);
 }
 .whole-container {
   /* border: 4px solid grey; */
-  border-radius: 50px;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 100px;
+  gap: 50px;
   align-self: center;
   width: 60%;
-  height: 80% ;
-  box-shadow: 0 0 5px #333;
+  height: 80%;
+  box-shadow: 0 0 50px #333;
   overflow: hidden;
   background-color: var(--bg-color);
 }
@@ -37,65 +34,46 @@ body {
 .grocery-form {
   display: grid;
   text-align: center;
-  /* border: 2px solid red; */
-  border-radius: 50px;
   padding: 10px;
-  /* width: 80%;
-  height: 100%; */
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 0.5fr 2fr 1.5fr;
   gap: 20px;
-    /* box-shadow: 0 0 5px #333; */
-
 }
-.alert{
-  /* border: 1px solid #00BB72; */
-  border-radius: 16px;
+.alert {
 }
 .grocery-form h3 {
-  border-radius: 60px;
   font-size: 50px;
   color: var(--bg-color);
-  /* padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px; */
   padding: 20px;
   background-color: var(--submit-color);
+  margin: 0 10%;
 }
 .grocery-form .controller {
   display: flex;
-  justify-content: center ;
+  justify-content: center;
   flex-wrap: wrap;
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: 16px;
 }
 .grocery-form .controller #grocery {
   font-size: 20px;
-  border-radius: 16px;
   border: none;
-  color: var(--submit-color); 
-  border: 3px solid var(--submit-color);  
+  color: var(--submit-color);
+  border: 3px solid var(--submit-color);
 }
 .grocery-form .controller .submit-btn {
-  /* display: flex; */
   font-size: 20px;
   font-weight: 900;
-  border: 3px solid var(--submit-color);  
-  border-radius: 20px;
-  background-color: #fff;
-  color: var(--submit-color); 
+  border: 3px solid var(--submit-color);
+  color: var(--submit-color);
   cursor: pointer;
 }
 /* LIST */
 .grocery-container {
-  /* border: 2px solid black; */
-  border-radius: 25px;
   display: grid;
   grid-template-rows: 3fr 1fr;
   grid-auto-flow: row;
 }
 .grocery-list {
-  /* border: 3px solid brown; */
   display: grid;
   grid-auto-flow: row;
 }
@@ -104,41 +82,32 @@ body {
   justify-content: space-between;
   padding-left: 30px;
   padding-right: 30px;
-  /* border: 2px solid turquoise; */
-  border-radius: 25px;
-  /* box-shadow: inset 0 5px 5px -5px #333; */
-
 }
-.grocery-list__item .title {}
+.grocery-list__item .title {
+}
 .grocery-list__item .edit-btn {
   font-variation-settings: 'wght' 300 'opsz' 20 'GRAD' 200;
   border: none;
   background: none;
   color: var(--add-color);
-  /* opacity: .8; */
   cursor: pointer;
+  box-shadow: 0 0 10px var(--add-color);
+
 }
 .grocery-list__item .delete-btn {
-  font-variation-settings: 'wght' 300 'opsz'20 'GRAD' 200;
+  font-variation-settings: 'wght' 300 'opsz' 20 'GRAD' 200;
   border: none;
   background: none;
   color: var(--remove-color);
   cursor: pointer;
-  /* opacity: .8; */
+  box-shadow: 0 0 10px var(--remove-color);
+
 }
-
-
-
-
-
 /* CLEAR ITEMS BUTTON */
 .clear-btn {
   background-color: var(--bg-color);
   border: none;
-  border-radius: 50px;
   color: var(--remove-color);
   font-size: 18px;
   cursor: pointer;
 }
-
-
