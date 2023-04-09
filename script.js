@@ -1,7 +1,16 @@
-const alert = document.querySelector('.alert');
-const form = document.querySelector('.grocery-form');
-const grocery = document.getElementById('grocery') //input
-const submitBtn = document.querySelector('.submit-btn');
-const container = document.querySelector('.grocery-container');
-const list = document.querySelector('.grocery-list');
-const clearBtn = document.querySelector('.clear-btn');
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+$('.grocery-form').addEventListener('click', addItem);
+$('.clear-btn').addEventListener('click', clearItems);
+$(window).addEventListener('DOMContentLoaded', setupItems);
+
+const addItem = (e) => {
+  e.preventDefault();
+  const value = $('#grocery').value
+  const id = parseInt(Math.random * 1000000)
+  console.log(value);
+  console.log('clicked')
+} 
+
+console.log('addItem')
