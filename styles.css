@@ -10,6 +10,23 @@
   --bg-color: #f3f6fc;
   --submit-color: #0b57d0;
 }
+.show-container {
+}
+.alert-danger {
+  background-color: #f24336;
+  color: #f3f6fc;
+  font-weight: 900;
+  padding: 10px;
+  margin: 0 20%;
+}
+.alert-success {
+  background-color: #00bb72;
+  color: #f3f6fc;
+  font-weight: 900;
+  padding: 10px;
+  margin: 0 20%;
+}
+
 /* PAGE */
 body {
   display: flex;
@@ -72,6 +89,7 @@ body {
   display: grid;
   grid-template-rows: 3fr 1fr;
   grid-auto-flow: row;
+  overflow: scroll;
 }
 .grocery-list {
   display: grid;
@@ -92,7 +110,6 @@ body {
   color: var(--add-color);
   cursor: pointer;
   box-shadow: 0 0 10px var(--add-color);
-
 }
 .grocery-list__item .delete-btn {
   font-variation-settings: 'wght' 300 'opsz' 20 'GRAD' 200;
@@ -101,7 +118,6 @@ body {
   color: var(--remove-color);
   cursor: pointer;
   box-shadow: 0 0 10px var(--remove-color);
-
 }
 /* CLEAR ITEMS BUTTON */
 .clear-btn {

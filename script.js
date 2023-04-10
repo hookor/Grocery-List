@@ -2,9 +2,9 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-$('.grocery-form').addEventListener('click', addItem);
-// $('.clear-btn').addEventListener('click', clearItems);
-// $(window).addEventListener('DOMContentLoaded', setupItems);
+$('.grocery-form').addEventListener('submit', addItem);
+$('.clear-btn').addEventListener('click', clearItems);
+window.addEventListener('DOMContentLoaded', setupItems);
 
 //edit option variables
 let editEl;
@@ -16,20 +16,21 @@ function addItem(e) {
   const value = $('#grocery').value;
   const id = parseInt(Math.random() * 1000000);
   //CONDITIONS OF if/else if
-  const generalInput = value !== '' && !onEdit;
-  const editInput = value !== '' && onEdit;
-  const todo = `<p class="title">${value}</p>
-<div class="btn-container">
-  <button type="button" class="edit-btn">
-    <div class="material-symbols-outlined">add_shopping_cart</div>
-  </button>
-  <button type="button" class="delete-btn">
-    <div class="material-symbols-outlined">
-      remove_shopping_cart
-    </div>
-  </button>
-</div>`;
-
+  let generalInput = value !== '' && !onEdit;
+  let editInput = value !== '' && onEdit;
+  const todo = `
+  <p class="title">${value}</p>
+            <div class="btn-container">
+              <button type="button" class="edit-btn">
+                <div class="material-symbols-outlined">add_shopping_cart</div>
+              </button>
+              <button type="button" class="delete-btn">
+                <div class="material-symbols-outlined">
+                  remove_shopping_cart
+                </div>
+              </button>
+            </div>
+  `;
   if (generalInput) {
     //generate todo
     const element = document.createElement('article');
@@ -39,9 +40,10 @@ function addItem(e) {
     element.classList.add('grocery-list__item');
     element.innerHTML = todo;
     //eventlisteners on delete/edit btns
+    $('.grocery-list').appendChild(element);
     $('.delete-btn').addEventListener('click', deleteItem);
     $('.edit-btn').addEventListener('click', editItem);
-    $('.grocery-list').appendChild(element);
+
     displayAlert('Listed', 'success');
     $('.grocery-container').classList.add('show-container');
     addToLocalStorage(id, value);
@@ -109,15 +111,15 @@ function Initialise() {
 }
 
 function addToLocalStorage(id, value) {
-  $('#grocery') = { id, value };
+  const grocery = { id, value };
   let items = getLocalStorage();
-  items.push($('#grocery'));
-  localStorage.setItem("list", JSON.stringify(items));
+  items.push(grocery);
+  localStorage.setItem('list', JSON.stringify(items));
 }
 
 function getLocalStorage() {
-  return localStorage.getItem("list")
-    ? JSON.parse(localStorage.getItem("list"))
+  return localStorage.getItem('list')
+    ? JSON.parse(localStorage.getItem('list'))
     : [];
 }
 
@@ -129,7 +131,7 @@ function removeFromLocalStorage(id) {
     }
   });
 
-  localStorage.setItem("list", JSON.stringify(items));
+  localStorage.setItem('list', JSON.stringify(items));
 }
 
 function editLocalStorage(id, value) {
@@ -141,5 +143,42 @@ function editLocalStorage(id, value) {
     }
     return item;
   });
-  localStorage.setItem("list", JSON.stringify(items));
+  localStorage.setItem('list', JSON.stringify(items));
+}
+
+function setupItems() {
+  let items = getLocalStorage();
+
+  if (items.length > 0) {
+    items.forEach(function (item) {
+      createListItem(item.id, item.value);
+    });
+    $('.grocery-container').classList.add('show-container');
+  }
+}
+
+function createListItem(id, value) {
+  const element = document.createElement('article');
+  let attr = document.createAttribute('data-id');
+  attr.value = id;
+  element.setAttributeNode(attr);
+  element.classList.add('grocery-list__item');
+  const todo = `
+  <p class="title">${value}</p>
+            <div class="btn-container">
+              <button type="button" class="edit-btn">
+                <div class="material-symbols-outlined">add_shopping_cart</div>
+              </button>
+              <button type="button" class="delete-btn">
+                <div class="material-symbols-outlined">
+                  remove_shopping_cart
+                </div>
+              </button>
+            </div>
+  `;
+
+  element.innerHTML = todo;
+  $('.grocery-list').appendChild(element);
+  $('.delete-btn').addEventListener('click', deleteItem);
+  $('.edit-btn').addEventListener('click', editItem);
 }
