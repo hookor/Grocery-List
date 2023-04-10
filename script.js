@@ -76,7 +76,7 @@ function clearItems() {
   $('.grocery-container').classList.remove('show-container');
   displayAlert('Cleared', 'danger');
   Initialise();
-  localStorage.removeItem($$('.grocery-list__item'));
+  localStorage.removeItem('list');
 }
 
 function deleteItem(e) {
@@ -101,6 +101,7 @@ function editItem(e) {
   onEdit = true;
   editID = el.dataset.id;
   $('.submit-btn').textContent = 'Edit';
+  editLocalStorage();
 }
 
 function Initialise() {
@@ -109,7 +110,7 @@ function Initialise() {
   editID = '';
   $('.submit-btn').textContent = 'Submit';
 }
-
+// ++++++++++++++++++++++++++LOCAL STORAGE
 function addToLocalStorage(id, value) {
   const grocery = { id, value };
   let items = getLocalStorage();
@@ -136,7 +137,7 @@ function removeFromLocalStorage(id) {
 
 function editLocalStorage(id, value) {
   let items = getLocalStorage();
-
+  console.log(items);
   items = items.map(function (item) {
     if (item.id === id) {
       item.value = value;
@@ -146,6 +147,7 @@ function editLocalStorage(id, value) {
   localStorage.setItem('list', JSON.stringify(items));
 }
 
+//++++++++++++++++++++++++++++SETUP
 function setupItems() {
   let items = getLocalStorage();
 
